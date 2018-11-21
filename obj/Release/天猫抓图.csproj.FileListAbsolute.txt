@@ -1,0 +1,11 @@
+E:\project\color\天猫抓图\bin\Release\天猫抓图.exe
+E:\project\color\天猫抓图\bin\Release\天猫抓图.pdb
+E:\project\color\天猫抓图\bin\Release\NCShop.Common.dll
+E:\project\color\天猫抓图\bin\Release\LitJSON.dll
+E:\project\color\天猫抓图\bin\Release\NCShop.Common.pdb
+E:\project\color\天猫抓图\obj\Release\天猫抓图.csprojResolveAssemblyReference.cache
+E:\project\color\天猫抓图\obj\Release\天猫抓图.Form1.resources
+E:\project\color\天猫抓图\obj\Release\天猫抓图.Properties.Resources.resources
+E:\project\color\天猫抓图\obj\Release\天猫抓图.csproj.GenerateResource.Cache
+E:\project\color\天猫抓图\obj\Release\天猫抓图.exe
+E:\project\color\天猫抓图\obj\Release\天猫抓图.pdb
