@@ -19,7 +19,7 @@ namespace taobaoSellPic
         {
             InitializeComponent();
         }
-        string dirName = "";
+        string dirName = "图片";
 
         bool isCatching = false;
         List<string> urls = new List<string>();
@@ -102,7 +102,7 @@ namespace taobaoSellPic
         {
             try
             {
-                dirName = "图片";
+               
                 Directory.CreateDirectory(dirName);
                 for (int i = 0; i < pics.Count; i++)
                 {
@@ -141,8 +141,9 @@ namespace taobaoSellPic
             }
         }
 
-        
-
-        
+        private void button2_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("Explorer.exe",System.Environment.CurrentDirectory+Path.DirectorySeparatorChar+ dirName);
+        }
     }
 }
