@@ -10,6 +10,7 @@ using System.IO;
 
 using System.Net;
 using System.Text.RegularExpressions;
+using HtmlAgilityPack;
 namespace taobaoSellPic
 {
     public partial class Form1 : Form
@@ -57,32 +58,45 @@ namespace taobaoSellPic
             isCatching = true;
             pics = new List<string>();
             names = new List<string>();
-           
-            string html = HttpSend.getSend(urls[inx],"",null,"UTF-8");
-            inx++;
-            Regex a = new Regex("style=\"background:url\\((\\S+)_\\S+\\)");
-            Regex b = new Regex("<a\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+>\\s+<span>(\\S+)</span>\\s+</a>");
-            /*pic path*/
-            MatchCollection mcs= a.Matches(html);
-            foreach (Match item in mcs)
+
+            HtmlWeb htmlWeb = new HtmlWeb();
+            Regex styleRex = new Regex("(//.*?jpg)");
+            Regex nameRex = new Regex("<span>(.*?)</span>");
+
+            HtmlAgilityPack.HtmlDocument doc;
+
+            try {
+                doc=htmlWeb.LoadFromBrowser(urls[inx]);
+            }
+            catch
             {
-                if (item.Success)
-                {
-                    pics.Add("http:" + item.Groups[1].Value + "");
-                }
-                
+                doc= htmlWeb.LoadFromBrowser(urls[inx]);
+
             }
 
-            /*name*/
-            MatchCollection NameMcs = b.Matches(html);
-            foreach (Match item in NameMcs)
+
+            inx++;
+            var  linkList= doc.DocumentNode.SelectNodes("//*[@id=\"J_DetailMeta\"]/div[1]/div[1]/div/div[4]/div/div/dl[1]/dd/ul/li");
+
+
+            foreach (var link in linkList)
             {
+                Match item = styleRex.Match(link.InnerHtml);
                 if (item.Success)
                 {
-                    names.Add("" + item.Groups[1].Value + "");
+                    pics.Add("https:" + item.Groups[1].Value + "");
+
+                    Match item2 = nameRex.Match(link.InnerHtml);
+                    if (item2.Success)
+                    {
+                        names.Add("" + item2.Groups[1].Value + "");
+                    }
                 }
+               
+
             }
-           
+       
+
         }
         void out2File()
         {
@@ -94,13 +108,14 @@ namespace taobaoSellPic
                 {
                     System.Net.WebClient WC = new WebClient();
                     WC.DownloadFile(pics[i], path + "/" + dirName + "/" + "" + names[i] + ".jpg");
+                 
                     WC.Dispose();
                 
                 }
                 isCatching = false;
            
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
                 isCatching = false;
