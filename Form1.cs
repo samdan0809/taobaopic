@@ -76,9 +76,9 @@ namespace taobaoSellPic
 
 
             inx++;
-            var  linkList= doc.DocumentNode.SelectNodes("//*[@id=\"J_DetailMeta\"]/div[1]/div[1]/div/div[4]/div/div/dl[1]/dd/ul/li");
+            var  linkList= doc.DocumentNode.SelectNodes("//div[@class='tb-sku']/dl/dd/ul/li");
 
-
+      
             foreach (var link in linkList)
             {
                 Match item = styleRex.Match(link.InnerHtml);
