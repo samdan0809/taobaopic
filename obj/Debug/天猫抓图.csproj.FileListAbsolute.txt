@@ -1,8 +1,0 @@
-E:\project\color\天猫抓图\bin\Debug\taobaoSellPic.exe.config
-E:\project\color\天猫抓图\bin\Debug\taobaoSellPic.exe
-E:\project\color\天猫抓图\bin\Debug\taobaoSellPic.pdb
-E:\project\color\天猫抓图\obj\Debug\taobaoSellPic.Form1.resources
-E:\project\color\天猫抓图\obj\Debug\天猫抓图.Properties.Resources.resources
-E:\project\color\天猫抓图\obj\Debug\天猫抓图.csproj.GenerateResource.Cache
-E:\project\color\天猫抓图\obj\Debug\taobaoSellPic.exe
-E:\project\color\天猫抓图\obj\Debug\taobaoSellPic.pdb
