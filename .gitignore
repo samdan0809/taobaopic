@@ -1,4 +1,4 @@
-bin/Debug
-obj/Debug
-obj/Debug/*
+bin
+obj
 tcx 所有的天猫链接url.txt
+
